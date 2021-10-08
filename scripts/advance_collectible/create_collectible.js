@@ -8,8 +8,8 @@ const path = require("path");
 const client = create('https://ipfs.infura.io:5001/api/v0')
 
 //Changed to Rinkeby
-const priKey = 'b8ed812a73ca25905a534c4afc5b0f5ba2b387727cf73e4700fe843dcb7971b6';
-const kovanurl = 'https://rinkeby.infura.io/v3/c5a0caa6b6bc4b9783e5ef0f055aa538'
+const priKey = 'YOUR PRIVATE KEY';
+const kovanurl = 'https://rinkeby.infura.io/v3/ID'
 const AdvanceCollectibles = require('../../build/contracts/AdvanceCollectibles.json');
 
 
