@@ -1,3 +1,4 @@
+require("dotenv").config();
 const { create } = require('ipfs-http-client')
 const Web3 = require("web3")
 
@@ -8,8 +9,8 @@ const path = require("path");
 const client = create('https://ipfs.infura.io:5001/api/v0')
 
 //Changed to Rinkeby
-const priKey = 'YOUR PRIVATE KEY';
-const kovanurl = 'https://rinkeby.infura.io/v3/ID'
+const priKey = process.env.PRI_KEY;
+const rinkebyUrl = process.env.RINKEBY_URL;
 const AdvanceCollectibles = require('../../build/contracts/AdvanceCollectibles.json');
 
 
@@ -21,7 +22,7 @@ const metadataTemple = {
 
 async function createSale(url) {
     console.log("IN CREATE SALE: ", url);
-    const provider = new HDWalletProvider(priKey, kovanurl);
+    const provider = new HDWalletProvider(priKey, rinkebyUrl);
     const web3 = new Web3(provider);
     let myAccounts = await web3.eth.getAccounts();
     const network = await web3.eth.net.getNetworkType();
@@ -41,7 +42,7 @@ async function createSale(url) {
 }
 
 module.exports = async callback => {
-    const provider = new HDWalletProvider(priKey, kovanurl);
+    const provider = new HDWalletProvider(priKey, rinkebyUrl);
     const web3 = new Web3(provider);
 
     console.log("hello crypto create collectible");

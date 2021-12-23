@@ -1,3 +1,4 @@
+require("dotenv").config();
 /**
  * Use this file to configure your truffle project. It's seeded with some
  * common settings for different networks and features like migrations,
@@ -53,8 +54,8 @@ module.exports = {
       //timeoutBlocks: 200, 
       provider: function () {
         return new HDWalletProvider(
-          'actual turtle ... YOUR MNEMONIC',
-          'https://kovan.infura.io/v3/ID'
+          process.env.MNEMONICS,
+          process.env.KOVAN_URL
         )
       },
 
@@ -65,8 +66,8 @@ module.exports = {
       networkCheckTimeout: 30000,
       provider: function () {
         return new HDWalletProvider(
-          'actual turtle ... YOUR MNEMONIC',
-          'https://rinkeby.infura.io/v3/ID'
+          process.env.MNEMONICS,
+          process.env.RINKEBY_URL
         )
       },
 
